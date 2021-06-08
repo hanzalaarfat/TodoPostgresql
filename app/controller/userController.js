@@ -4,6 +4,7 @@ const Op = db.Sequelize.Op;
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var secret = process.env.SECRET;
+
 exports.Signup = (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {

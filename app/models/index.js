@@ -20,5 +20,12 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.users = require("./usermodel")(sequelize, Sequelize);
+db.todos = require("./todoModel")(sequelize, Sequelize);
+
+///////////////relation ///////////
+
+db.users.hasMany(db.todos, { foreignKey: "userId" });
+db.todos.belongsTo(db.users, { foreignKey: "userId" });
+
 
 module.exports = db;
